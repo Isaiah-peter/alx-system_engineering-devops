@@ -3,7 +3,7 @@
 
 hour=0
 min=1
-
+echo "Hour: ${hour}"
 while [ $hour -le 12 ]
 do
 	if [ $min -lt 60 ]
