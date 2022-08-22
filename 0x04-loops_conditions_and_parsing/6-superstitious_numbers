@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# superstitious number in three country
+
+counter=1
+while [ $counter -lt 21 ]
+do
+	case "${4}"
