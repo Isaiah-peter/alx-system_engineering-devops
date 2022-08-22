@@ -4,4 +4,21 @@
 counter=1
 while [ $counter -lt 21 ]
 do
-	case "${4}"
+	echo $counter
+	case $counter in
+		4)
+			echo "bad luck from China"
+		;;
+
+		9)
+			echo "bad luck from Japan"
+		;;
+
+		17)
+			echo "bad luck from Italy"
+		;;
+
+	esac
+	((counter++))
+
+done
