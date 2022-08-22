@@ -7,13 +7,11 @@ do
 	if [ $counter -eq 3 ]
 	then
 		echo "bad luck"
-		counter=$(($counter + 1))
-	fi
-	if [ $counter -eq 7 ]
+	elif [ $counter -eq 7 ]
 	then
 		echo "good luck"
-		counter=$(($counter + 1))
-	fi
+	else
 	echo "Best School"
+	fi
 	((counter++))
 done
