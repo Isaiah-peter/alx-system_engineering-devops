@@ -11,12 +11,12 @@ do
 		echo $min
 	elif [ $min -gt 59 ]
 	then
-		hour=$(($hour + 1))
+		hour=$((hour + 1))
 		if [ $hour -ne 13 ]
 		then
 			echo "Hour: ${hour}"
 		fi
 		min=$((0))
 	fi
-	min=$(($min + 1))
+	min=$((min + 1))
 done
