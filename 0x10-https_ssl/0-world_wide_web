@@ -1,8 +1,23 @@
 #!/usr/bin/env bash
-# to dig the domain and if relevant, sub
-if [ $# -eq 1 ]; then
-	domains="www.$1 lb-01.$1 web-01.$1 web-02.$1"
-else
-	domains="$2.$1"
+# configure domain zone
+splitter () {
+    TEMP=$(dig "$SUBD" | grep -A1 'ANSWER SECTION:' | tail -1)
+    A=$(echo "$TEMP" | awk '{ print $4 }')
+    B=$(echo "$TEMP" | awk '{ print $5 }')
+}
+
+if [ $# -eq 2 ]
+then
+    SUBD="$2.$1"
+    splitter "$SUBD"
+    echo "The subdomain $2 is a $A record and points to $B"
+elif [ $# -eq 1 ]
+then
+    ARR=('www' 'lb-01' 'web-01' 'web-02')
+    for i in "${ARR[@]}"
+    do
+        SUBD="$i.$1"
+        splitter "$SUBD"
+        echo "The subdomain $i is a $A record and points to $B"
+    done
 fi
-dig $domains | awk '/ANSWER SECTION:/ { getline; split($1, a, "."); print "The subdomain", a[1], "is a", $4, "record and points to", $5}'
