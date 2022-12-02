@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-write a Python script that, using this REST API, for a given 
+Write a Python script that, using this REST API, for a given 
 """
 
 import requests
