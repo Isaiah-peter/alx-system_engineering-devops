@@ -9,7 +9,7 @@ url = 'http://reddit.com/r/{}/hot.json'
 
 def count_words(subreddit, word_list, hot_list=[], after=None):
     ''' Get hot posts '''
-    header = {'User-agent': 'tabbykatz-app3'}
+    header = {'User-agent': 'tabbykatz-app1'}
     params = {'limit': 100}
     if isinstance(after, str):
         if after != "DONE":
